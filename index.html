@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jasitha Thilakarathne · Full-stack Engineer</title>
+<meta name="description" content="Jasitha Thilakarathne: full-stack software engineer (Java, Spring Boot, React) building secure, scalable web applications and APIs. Available for roles and freelance projects.">
+<meta property="og:title" content="Jasitha Thilakarathne · Full-stack Engineer">
+<meta property="og:description" content="Java · Spring Boot · React. Secure, scalable web applications and APIs for FinTech, healthcare and business.">
+<meta property="og:url" content="https://jasithapawan25.github.io">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%232563eb'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='700' font-size='30' fill='white'>JT</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f8fb; --surface: #ffffff; --surface-2: #eef2f8; --text: #0f172a; --muted: #55627a;
+    --border: #e2e8f0; --accent: #2563eb; --accent-2: #0ea5e9; --accent-soft: #e0ebff; --ok: #16a34a;
+    --shadow: 0 1px 2px rgba(15,23,42,.05), 0 8px 24px rgba(15,23,42,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b1120; --surface: #111a2e; --surface-2: #17223a; --text: #e6ebf5; --muted: #9aa8c0;
+      --border: #1f2c45; --accent: #60a5fa; --accent-2: #38bdf8; --accent-soft: #172a4d; --ok: #4ade80;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b1120; --surface: #111a2e; --surface-2: #17223a; --text: #e6ebf5; --muted: #9aa8c0;
+    --border: #1f2c45; --accent: #60a5fa; --accent-2: #38bdf8; --accent-soft: #172a4d; --ok: #4ade80;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text);
+         line-height: 1.6; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+  @media (min-width: 640px) { .wrap { padding: 0 28px; } }
+  svg.i { width: 18px; height: 18px; flex: none; }
+
+  /* Nav */
+  header { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 85%, transparent);
+           backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 12px; }
+  .logo { font-weight: 800; color: var(--text); letter-spacing: -.02em; display: flex; align-items: center; gap: 10px; }
+  .logo span.mark { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 9px;
+                    background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; font-size: 13px; }
+  .logo:hover { text-decoration: none; }
+  .links { display: none; gap: 26px; }
+  .links a { color: var(--muted); font-weight: 500; font-size: 15px; }
+  .links a:hover { color: var(--text); text-decoration: none; }
+  @media (min-width: 820px) { .links { display: flex; } }
+  .nav-right { display: flex; align-items: center; gap: 8px; }
+  .icon-btn { width: 38px; height: 38px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface);
+              color: var(--text); display: grid; place-items: center; cursor: pointer; }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 12px; font-weight: 600;
+         font-size: 15px; border: 1px solid transparent; cursor: pointer; transition: transform .15s, box-shadow .15s; }
+  .btn:hover { text-decoration: none; transform: translateY(-1px); }
+  .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 6px 18px color-mix(in srgb, var(--accent) 35%, transparent); }
+  :root[data-theme="dark"] .btn-primary { color: #06122b; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn-primary { color: #06122b; } }
+  .btn-ghost { background: var(--surface); color: var(--text); border-color: var(--border); }
+  .btn-sm { padding: 8px 14px; font-size: 14px; border-radius: 10px; }
+
+  /* Hero */
+  .hero { padding-top: 64px; padding-bottom: 48px; }
+  @media (min-width: 820px) { .hero { padding-top: 96px; padding-bottom: 72px; } }
+  .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; font-size: 13.5px;
+           font-weight: 600; background: var(--surface); border: 1px solid var(--border); color: var(--muted); }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ok) 20%, transparent); }
+  h1 { font-size: clamp(34px, 7vw, 60px); line-height: 1.08; letter-spacing: -.035em; font-weight: 800; margin: 20px 0 16px; }
+  h1 .grad { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lead { font-size: clamp(17px, 2.2vw, 19.5px); color: var(--muted); max-width: 680px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 36px; }
+  .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 760px; }
+  @media (min-width: 640px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; }
+  .stat b { display: block; font-size: 24px; letter-spacing: -.02em; }
+  .stat span { color: var(--muted); font-size: 13.5px; }
+
+  /* Sections */
+  section { padding: 56px 0; }
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent); letter-spacing: .04em; }
+  h2 { font-size: clamp(26px, 4vw, 36px); letter-spacing: -.025em; line-height: 1.2; margin: 6px 0 12px; }
+  .sub { color: var(--muted); max-width: 640px; margin-bottom: 32px; }
+  .grid { display: grid; gap: 16px; }
+  @media (min-width: 720px) { .grid-2 { grid-template-columns: repeat(2, 1fr); } .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 22px; box-shadow: var(--shadow); }
+  .card h3 { font-size: 18px; letter-spacing: -.01em; margin-bottom: 6px; }
+  .card p { color: var(--muted); font-size: 15px; }
+  .ico { width: 42px; height: 42px; border-radius: 11px; display: grid; place-items: center; background: var(--accent-soft);
+         color: var(--accent); margin-bottom: 14px; }
+  .ico svg { width: 22px; height: 22px; }
+
+  /* Projects */
+  .project { display: flex; flex-direction: column; }
+  .project .tag { font-size: 12.5px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .06em; }
+  .project h3 { font-size: 21px; margin: 6px 0 10px; }
+  .project ul { list-style: none; margin: 14px 0 16px; display: grid; gap: 7px; }
+  .project li { color: var(--muted); font-size: 14.5px; padding-left: 20px; position: relative; }
+  .project li::before { content: ""; position: absolute; left: 2px; top: 9px; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+  .chip { font-size: 12.5px; font-weight: 500; padding: 4px 10px; border-radius: 999px; background: var(--surface-2); color: var(--text); border: 1px solid var(--border); }
+  .project .actions { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+
+  /* Timeline */
+  .timeline { position: relative; display: grid; gap: 16px; }
+  .job { display: grid; gap: 4px; }
+  .job-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; align-items: baseline; }
+  .job .org { color: var(--accent); font-weight: 600; font-size: 15px; }
+  .job .when { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); }
+  .job ul { margin: 10px 0 0 18px; color: var(--muted); font-size: 15px; display: grid; gap: 4px; }
+
+  /* Skills */
+  .skill-group h3 { font-size: 15px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+
+  /* Contact */
+  .contact { background: linear-gradient(135deg, #1e3a8a, #0e7490, #4c1d95, #1e3a8a); color: #fff; border-radius: 22px; padding: 36px 22px; }
+  @media (min-width: 720px) { .contact { padding: 52px 48px; } }
+  .contact h2 { color: #fff; }
+  .contact .sub { color: #dbe7ff; }
+  .contact-grid { display: grid; gap: 12px; }
+  @media (min-width: 720px) { .contact-grid { grid-template-columns: 1.4fr 1fr 1fr; } }
+  .c-item { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 14px; background: rgba(255,255,255,.1);
+            border: 1px solid rgba(255,255,255,.18); color: #fff; transition: background .15s; min-width: 0; }
+  .c-item:hover { background: rgba(255,255,255,.18); text-decoration: none; }
+  .c-item .ci { width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,.16); display: grid; place-items: center; flex: none; }
+  .c-item small { display: block; color: #c7d7f5; font-size: 12.5px; }
+  .c-item b { font-weight: 600; font-size: 15px; overflow-wrap: anywhere; }
+  .contact-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+  .contact .btn-primary { background: #fff; color: #1e3a8a; box-shadow: none; }
+  .contact .btn-ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.4); }
+
+  /* Background animation: drifting colour blobs + dot grid behind the page */
+  .bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .35; will-change: transform; }
+  .b1 { width: 520px; height: 520px; background: var(--accent); top: -160px; left: -120px; animation: drift1 26s ease-in-out infinite alternate; }
+  .b2 { width: 440px; height: 440px; background: var(--accent-2); top: 30%; right: -160px; animation: drift2 32s ease-in-out infinite alternate; }
+  .b3 { width: 380px; height: 380px; background: #8b5cf6; bottom: -140px; left: 25%; opacity: .22; animation: drift3 38s ease-in-out infinite alternate; }
+  :root[data-theme="dark"] .blob { opacity: .22; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .blob { opacity: .22; } }
+  @keyframes drift1 { to { transform: translate(180px, 140px) scale(1.15); } }
+  @keyframes drift2 { to { transform: translate(-220px, 120px) scale(.9); } }
+  @keyframes drift3 { to { transform: translate(160px, -180px) scale(1.2); } }
+  .dots { position: absolute; inset: 0;
+          background-image: radial-gradient(color-mix(in srgb, var(--muted) 35%, transparent) 1px, transparent 1px);
+          background-size: 26px 26px; animation: dots 60s linear infinite;
+          -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 70%);
+                  mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 70%); }
+  @keyframes dots { to { background-position: 26px 260px; } }
+
+  /* Hero network canvas */
+  .hero { position: relative; }
+  .hero > *:not(canvas) { position: relative; z-index: 1; }
+  #net { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;
+         -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 45%);
+                 mask-image: linear-gradient(90deg, transparent 0%, #000 45%); }
+  @media (max-width: 719px) { #net { opacity: .5; -webkit-mask-image: none; mask-image: none; } }
+
+  /* Shimmering gradient text + moving contact gradient */
+  h1 .grad { background-size: 200% auto; animation: shine 6s linear infinite; }
+  @keyframes shine { to { background-position: 200% center; } }
+  .contact { background-size: 200% 200%; animation: flow 14s ease-in-out infinite alternate; position: relative; overflow: hidden; }
+  @keyframes flow { from { background-position: 0% 0%; } to { background-position: 100% 100%; } }
+  .contact::before { content: ""; position: absolute; width: 360px; height: 360px; border-radius: 50%; right: -100px; top: -140px;
+                     background: radial-gradient(circle, rgba(255,255,255,.18), transparent 70%); animation: drift2 18s ease-in-out infinite alternate; }
+  .contact > * { position: relative; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .blob, .dots, h1 .grad, .contact, .contact::before { animation: none; }
+  }
+
+  footer { padding: 32px 0 44px; color: var(--muted); font-size: 14px; text-align: center; }
+
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<div class="bg" aria-hidden="true">
+  <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+  <div class="dots"></div>
+</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top"><span class="mark">JT</span>Jasitha</a>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn" id="theme" aria-label="Toggle dark mode">
+        <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a class="btn btn-primary btn-sm" href="#contact">Hire me</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Hero -->
+  <div class="wrap hero">
+    <canvas id="net" aria-hidden="true"></canvas>
+    <span class="badge"><span class="dot"></span>Available for full-time roles &amp; freelance projects</span>
+    <h1>Hi, I'm Jasitha.<br>I build <span class="grad">secure, scalable</span> web apps.</h1>
+    <p class="lead">Full-stack software engineer working with <b>Java, Spring Boot and React</b>. For 3.5+ years I've built
+      payment and healthcare systems, from REST APIs and databases to the screens people use every day.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#contact">
+        <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6 12 13 2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+        Start a conversation
+      </a>
+      <a class="btn btn-ghost" href="#projects">See my work</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>3.5+ yrs</b><span>Professional experience</span></div>
+      <div class="stat"><b>FinTech</b><span>Payments platform</span></div>
+      <div class="stat"><b>Healthcare</b><span>EHR systems</span></div>
+      <div class="stat"><b>Full-stack</b><span>API to UI</span></div>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="wrap">
+      <div class="eyebrow reveal">// what I can do for you</div>
+      <h2 class="reveal">Services</h2>
+      <p class="sub reveal">Whether you're a company hiring or a business with an idea, here's how I can help.</p>
+      <div class="grid grid-3">
+        <div class="card reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
+          <h3>Full-stack web applications</h3>
+          <p>Complete web apps with React front ends and Spring Boot or Node.js back ends: dashboards, portals, booking and management systems.</p>
+        </div>
+        <div class="card reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg></div>
+          <h3>REST APIs &amp; backend systems</h3>
+          <p>Well-designed, documented APIs and microservices with secure login (JWT, OAuth2), role-based access and reliable data handling.</p>
+        </div>
+        <div class="card reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
+          <h3>Database design &amp; tuning</h3>
+          <p>Schema design for MySQL, PostgreSQL and MongoDB, plus query optimisation and caching to make slow systems fast.</p>
+        </div>
+        <div class="card reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18.5 9l-4.7 1.8L12 15.5l-1.8-4.7L5.5 9l4.7-1.3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
+          <h3>AI integration</h3>
+          <p>Add AI to your product: document data extraction, summaries and assistants built on LLM APIs, with a human review step where it matters.</p>
+        </div>
+        <div class="card reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <h3>Secure payment &amp; data systems</h3>
+          <p>Experience from FinTech and healthcare: secure coding, audit logging and careful handling of sensitive financial and patient data.</p>
+        </div>
+        <div class="card reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></div>
+          <h3>Maintenance &amp; modernisation</h3>
+          <p>Fix bugs, improve performance, add tests and Docker / CI-CD pipelines to existing Java and JavaScript applications.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="eyebrow reveal">// selected work</div>
+      <h2 class="reveal">Featured projects</h2>
+      <p class="sub reveal">Open-source projects you can explore on GitHub.</p>
+      <div class="grid grid-2">
+        <article class="card project reveal">
+          <span class="tag">AI · Backend</span>
+          <h3>AI Document Review Service</h3>
+          <p>Users upload documents, an LLM (Claude API) extracts the key fields in the background, and a human reviewer approves or corrects the result before it's accepted.</p>
+          <ul>
+            <li>State-machine approval workflow with asynchronous processing</li>
+            <li>Pluggable AI provider interface, ready for other or self-hosted models</li>
+            <li>Role-based security and an append-only audit log</li>
+            <li>Docker Compose setup and MockMvc integration tests</li>
+          </ul>
+          <div class="chips"><span class="chip">Java 17</span><span class="chip">Spring Boot 3</span><span class="chip">Spring Security</span><span class="chip">JPA</span><span class="chip">PostgreSQL</span><span class="chip">Claude API</span><span class="chip">Docker</span></div>
+          <div class="actions">
+            <a class="btn btn-ghost btn-sm" href="https://github.com/JasithaPawan25/ai-document-review" target="_blank" rel="noopener">
+              <svg class="i" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>
+              View code
+            </a>
+          </div>
+        </article>
+        <article class="card project reveal">
+          <span class="tag">Full-stack · Web app</span>
+          <h3>Project Management Dashboard</h3>
+          <p>A full-stack TypeScript app for planning projects, assigning tasks and tracking team progress in real time.</p>
+          <ul>
+            <li>Real-time task and progress tracking</li>
+            <li>REST APIs with role-based access control</li>
+            <li>Relational data model with Prisma and PostgreSQL</li>
+            <li>Responsive React / Next.js interface</li>
+          </ul>
+          <div class="chips"><span class="chip">TypeScript</span><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">Prisma</span><span class="chip">PostgreSQL</span></div>
+          <div class="actions">
+            <a class="btn btn-ghost btn-sm" href="https://github.com/JasithaPawan25/Project-Management-App" target="_blank" rel="noopener">
+              <svg class="i" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>
+              View code
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="eyebrow reveal">// where I've worked</div>
+      <h2 class="reveal">Experience</h2>
+      <p class="sub reveal">Real production systems in two demanding industries.</p>
+      <div class="timeline">
+        <div class="card job reveal">
+          <div class="job-head"><h3>Associate Software Engineer</h3><span class="when">Jun 2025 – Present</span></div>
+          <div class="org">PAYable · Payments / FinTech</div>
+          <ul>
+            <li>Design and build Spring Boot microservices and REST APIs for a payments platform used by web and mobile clients.</li>
+            <li>Optimise MySQL data access and speed up services with Redis caching and Kafka-based async processing.</li>
+            <li>Secure APIs with Spring Security (JWT, OAuth2) and ship through Docker and Jenkins CI/CD.</li>
+          </ul>
+        </div>
+        <div class="card job reveal">
+          <div class="job-head"><h3>Associate Software Engineer</h3><span class="when">Nov 2022 – Jan 2025</span></div>
+          <div class="org">Avenir IT, Kandy · Healthcare</div>
+          <ul>
+            <li>Built healthcare applications end to end with Java back ends and React front ends.</li>
+            <li>Led a new Electronic Health Record (EHR) sub-application from client requirements to production.</li>
+            <li>Designed database schemas, added RabbitMQ messaging, and mentored juniors and interns.</li>
+          </ul>
+        </div>
+        <div class="card job reveal">
+          <div class="job-head"><h3>Intern Software Engineer</h3><span class="when">Mar 2022 – Nov 2022</span></div>
+          <div class="org">Avenir IT, Kandy</div>
+          <ul>
+            <li>Built MERN-stack features, including real-time updates over WebSocket; moved into a full-time role on completion.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="eyebrow reveal">// toolbox</div>
+      <h2 class="reveal">Skills &amp; education</h2>
+      <p class="sub reveal">The tools I use every day to ship reliable software.</p>
+      <div class="grid grid-3">
+        <div class="card skill-group reveal"><h3>Backend</h3><div class="chips"><span class="chip">Java 8/17/21</span><span class="chip">Spring Boot 3</span><span class="chip">Spring Security</span><span class="chip">JPA / Hibernate</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">REST APIs</span><span class="chip">Microservices</span></div></div>
+        <div class="card skill-group reveal"><h3>Frontend</h3><div class="chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">JavaScript (ES6+)</span><span class="chip">HTML5</span><span class="chip">CSS3</span></div></div>
+        <div class="card skill-group reveal"><h3>Data &amp; messaging</h3><div class="chips"><span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">Redis</span><span class="chip">Kafka</span><span class="chip">RabbitMQ</span><span class="chip">WebSocket</span></div></div>
+        <div class="card skill-group reveal"><h3>DevOps &amp; testing</h3><div class="chips"><span class="chip">Docker</span><span class="chip">Jenkins CI/CD</span><span class="chip">Git</span><span class="chip">Linux</span><span class="chip">Maven</span><span class="chip">JUnit 5</span><span class="chip">Mockito</span></div></div>
+        <div class="card skill-group reveal"><h3>AI &amp; learning</h3><div class="chips"><span class="chip">Claude API</span><span class="chip">Claude Code</span><span class="chip">Python</span><span class="chip">AWS (learning)</span><span class="chip">Kubernetes (learning)</span></div></div>
+        <div class="card skill-group reveal"><h3>Education</h3>
+          <p><b style="color:var(--text)">MSc in Data Science</b><br>Cardiff Metropolitan University · 2026 – Present</p>
+          <p style="margin-top:10px"><b style="color:var(--text)">BSc (Hons) Software Engineering</b><br>Cardiff Metropolitan University · 2025, Second Class Upper</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact reveal">
+        <div class="eyebrow" style="color:#bfe3ff">// let's talk</div>
+        <h2>Have a project or a role in mind?</h2>
+        <p class="sub">Tell me what you need. I usually reply within 24 hours. Whether it's a full-time position, a freelance build or a quick question, I'm happy to help.</p>
+        <div class="contact-grid">
+          <a class="c-item" href="mailto:pawanthilakarathne@gmail.com?subject=Hello%20Jasitha%20-%20Project%20enquiry">
+            <span class="ci"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6 12 13 2 6"/></svg></span>
+            <span><small>Email</small><b>pawanthilakarathne@gmail.com</b></span>
+          </a>
+          <a class="c-item" href="https://www.linkedin.com/in/jasitha-thilakarathne" target="_blank" rel="noopener">
+            <span class="ci"><svg class="i" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zm1.8 13.1H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg></span>
+            <span><small>LinkedIn</small><b>jasitha-thilakarathne</b></span>
+          </a>
+          <a class="c-item" href="https://github.com/JasithaPawan25" target="_blank" rel="noopener">
+            <span class="ci"><svg class="i" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg></span>
+            <span><small>GitHub</small><b>JasithaPawan25</b></span>
+          </a>
+        </div>
+        <div class="contact-cta">
+          <a class="btn btn-primary" href="mailto:pawanthilakarathne@gmail.com?subject=Hello%20Jasitha%20-%20Project%20enquiry">Email me</a>
+          <button class="btn btn-ghost" id="copy" type="button">Copy email address</button>
+        </div>
+        <p style="margin-top:18px;color:#c7d7f5;font-size:14px">📍 Kegalle, Sri Lanka · Open to remote work and clients worldwide</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="year">2026</span> Jasitha Thilakarathne · Built with HTML &amp; CSS, hosted on GitHub Pages</div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Theme toggle (remembers choice when storage is available)
+  const root = document.documentElement;
+  try { const t = localStorage.getItem('theme'); if (t) root.dataset.theme = t; } catch (e) {}
+  document.getElementById('theme').addEventListener('click', () => {
+    const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = dark ? 'light' : 'dark';
+    try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+  });
+
+  // Copy email
+  const copyBtn = document.getElementById('copy');
+  copyBtn.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText('pawanthilakarathne@gmail.com'); copyBtn.textContent = 'Copied ✓'; }
+    catch (e) { copyBtn.textContent = 'pawanthilakarathne@gmail.com'; }
+    setTimeout(() => copyBtn.textContent = 'Copy email address', 2500);
+  });
+
+  // Hero network animation: drifting nodes joined by lines, nudged away by the pointer
+  (() => {
+    const canvas = document.getElementById('net');
+    const ctx = canvas.getContext('2d');
+    const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let w, h, nodes = [], running = true, mouse = { x: -999, y: -999 };
+
+    function resize() {
+      const r = canvas.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 2);
+      w = r.width; h = r.height;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const count = Math.round(Math.min(70, (w * h) / 14000));
+      nodes = Array.from({ length: count }, () => ({
+        x: Math.random() * w, y: Math.random() * h,
+        vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35
+      }));
+    }
+
+    function frame() {
+      const color = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = ctx.strokeStyle = color;
+      for (const n of nodes) {
+        if (!still) {
+          const dx = n.x - mouse.x, dy = n.y - mouse.y, d = Math.hypot(dx, dy);
+          if (d < 110) { n.x += dx / d * 1.2; n.y += dy / d * 1.2; }
+          n.x += n.vx; n.y += n.vy;
+          if (n.x < 0 || n.x > w) n.vx *= -1;
+          if (n.y < 0 || n.y > h) n.vy *= -1;
+        }
+        ctx.globalAlpha = .55;
+        ctx.beginPath(); ctx.arc(n.x, n.y, 2, 0, Math.PI * 2); ctx.fill();
+      }
+      ctx.lineWidth = 1;
+      for (let i = 0; i < nodes.length; i++) for (let j = i + 1; j < nodes.length; j++) {
+        const a = nodes[i], b = nodes[j], d = Math.hypot(a.x - b.x, a.y - b.y);
+        if (d < 130) {
+          ctx.globalAlpha = (1 - d / 130) * .3;
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+        }
+      }
+      ctx.globalAlpha = 1;
+      if (running && !still) requestAnimationFrame(frame);
+    }
+
+    resize(); frame();
+    addEventListener('resize', () => { resize(); if (still) frame(); });
+    document.querySelector('.hero').addEventListener('pointermove', e => {
+      const r = canvas.getBoundingClientRect(); mouse = { x: e.clientX - r.left, y: e.clientY - r.top };
+    });
+    document.querySelector('.hero').addEventListener('pointerleave', () => mouse = { x: -999, y: -999 });
+    document.getElementById('theme').addEventListener('click', () => { if (still) frame(); });
+    // Pause when the hero is off screen to save battery
+    if ('IntersectionObserver' in window && !still) new IntersectionObserver(([e]) => {
+      const was = running; running = e.isIntersecting; if (running && !was) requestAnimationFrame(frame);
+    }).observe(canvas);
+  })();
+
+  // Reveal on scroll
+  const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { threshold: 0.12 }) : null;
+  document.querySelectorAll('.reveal').forEach(el => io ? io.observe(el) : el.classList.add('in'));
+</script>
+</body>
+</html>
